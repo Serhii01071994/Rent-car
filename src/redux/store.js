@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { advertReducer } from './advertSlice';
+import { advertReducer } from './catalog/catalogSlice';
 
 
 const persistConfig = {
@@ -23,7 +23,8 @@ const persistedReducer = persistReducer(persistConfig, advertReducer);
 
 export const store = configureStore({
   reducer: {
-    advert: persistedReducer,
+    // catalog: catalogReducer,
+       // favorites: persistReducer(favoritesPersistConfig, favoritesReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

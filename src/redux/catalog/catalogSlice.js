@@ -1,5 +1,5 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { getAllAdvertThunk, getCarBiIdThunk } from "./advertThunk";
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { getAllAdvertThunk, getCarBiIdThunk } from './catalogThunk';
 
 const INITIAL_STATE = {
   carsAdvert: [],
@@ -55,4 +55,4 @@ const advertSlice = createSlice({
 });
 
 export const { loadMore, setCurrentCar } = advertSlice.actions;
-export const advertReducer = advertSlice.reducer;
+export const catalogtReducer = advertSlice.reducer;

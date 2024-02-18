@@ -2,11 +2,25 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as API from 'services/api';
 
 export const getAllAdvertThunk = createAsyncThunk(
-  'advert/getAll',
+  'adverts/getAll',
+  async (_, thunkAPI) => {
+    try {
+      const allCars = await API.getAllCars();
+      console.log(`all`, allCars)
+      return allCars;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getAdvertThunk = createAsyncThunk(
+  'adverts/getAll',
   async (page, thunkAPI) => {
     try {
-      const data = await API.getAllAdvert(page);
-      return data;
+      const cars = await API.getAllAdvert(page);
+      console.log(cars)
+      return cars;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -14,7 +28,7 @@ export const getAllAdvertThunk = createAsyncThunk(
 );
 
 export const getCarBiIdThunk = createAsyncThunk(
-  'advert/getCarBiId',
+  'adverts/getCarBiId',
   async (carId, thunkAPI) => {
     try {
       const data = await API.getCarById(carId);
